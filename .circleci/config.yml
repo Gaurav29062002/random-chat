@@ -19,7 +19,7 @@ jobs:
     docker:
       - image: cimg/node:20.0
 
-      steps:
+    steps:
         - checkout
 
       - run:
