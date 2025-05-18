@@ -1,0 +1,12 @@
+{
+    "name": "random-chat-frontend",
+    "version": "1.0.0",
+    "description": "A simple random chat frontend using HTML, CSS, and JS",
+    "scripts": {
+      "test": "node app.test.js"
+    },
+    "devDependencies": {
+      "jsdom": "^22.1.0"
+    }
+  }
+  

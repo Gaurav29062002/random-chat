@@ -1,0 +1,41 @@
+version: 2.1
+
+jobs:
+    build: 
+      docker:
+        - image: cimg/node:20.0
+
+      steps:
+        - checkout
+
+      - run:
+        - name: Install Dependencies
+        - command: npm install
+      
+      - run:
+        - name: Run tests
+        - command: npm test
+    deploy:
+      docker:
+        - image: cimg/node:20.0
+
+      steps:
+        - checkout
+
+      - run:
+        - name: Install vercel CLI Locally
+        - command: npm install vercel
+
+      - run:
+        - name: Deploy to vercel
+        - command: npx vercel --prod --token $chat --confirm
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - build
+        - deploy:
+           requires:
+            - build
+
